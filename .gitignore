@@ -1,0 +1,6 @@
+.ssh/
+.git/
+*.retry
+.DS_Store
+.vagrant
+Vagrantfile
