@@ -1,0 +1,10 @@
+---
+    - name: build docker image
+      docker_image: path="{{ dockerfilespath }}/docker" name="tahaderouiche/jenkins" tag="version2.2" state=present
+    - name: run docker
+      docker:
+        name: jenkins
+        image: tahaderouiche/jenkins:version2.2
+        ports: 0.0.0.0:8081:8080 , 0.0.0.0:5000:5000
+        state: started
+        volumes: /var/jenkins_home
