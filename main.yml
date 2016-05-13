@@ -1,8 +1,8 @@
 ---
 - hosts: ubuntu-ec2
   tasks:
-    - name: ping user
-      ping:
+    # - name: ping user
+    #   ping:
     - name: APT works with the https
       become: yes
       become_user: root
