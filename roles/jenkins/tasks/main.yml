@@ -1,16 +1,13 @@
 ---
     - name: build docker image
-      docker_image: path="{{ dockerfilespath }}/docker" name="tahaderouiche/jenkins" tag="version2.2" state=present
+      become: yes
+      become_user: root
+      docker_image: path="{{ dockerfilespath }}/docker" name="tahaderouiche/jenkins" tag="version2.2"
     - name: run docker
+      become: yes
       docker:
         name: jenkinsv2.2
         image: tahaderouiche/jenkins:version2.2
         ports: 0.0.0.0:8081:8080 , 0.0.0.0:5000:5000
         state: started
         volumes: /var/jenkins_home
-    - name: Wait for Jenkins to load
-      pause: seconds=30
-    - name: Show default admin password from /var/jenkins_home/secrets/initialAdminPassword
-      shell: docker exec -it jenkinsv2.2 cat /var/jenkins_home/secrets/initialAdminPassword
-      register: password
-    - debug:  msg="Administrator password {{ password.stdout }}"

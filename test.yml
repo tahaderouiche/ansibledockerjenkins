@@ -1,0 +1,17 @@
+---
+- hosts: dockerhost
+#  sudo: True
+  tasks:
+    - name: ping user
+      ping:
+#    - debug:  msg="Administrator password {{ password.stdout }}"
+    - name: generate ssh keys
+      shell: docker exec -it jenkinsv2.2 ssh-keygen -q -y -t rsa -N '' -f /var/jenkins_home/.ssh/github_key
+    - name: print public key
+      shell: docker exec -it jenkinsv2.2 cat /var/jenkins_home/.ssh/github_key.pub
+      register: pubkey
+    - name: Copy public key below
+      debug:  msg="SSH public key for Github authentication -> {{ pubkey.stdout }}"
+      debug: var=pubkey.stdout_lines
+
+
