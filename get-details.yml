@@ -2,16 +2,15 @@
 - hosts: dockerhost
   tasks:
     - name: Show default admin password from /var/jenkins_home/secrets/initialAdminPassword
-      shell: docker exec -it jenkinsv2.2 cat /var/jenkins_home/secrets/initialAdminPassword
+      shell: docker exec -it myjenkins cat /var/jenkins_home/secrets/initialAdminPassword
       register: password
     - name: Copy default Administrator password below
       debug: var=password.stdout_lines
-    - name: generate ssh keys
-      shell: docker exec -it jenkinsv2.2 ssh-keygen -q -t rsa -N '' -f /var/jenkins_home/.ssh/github_key
-    - name: print public key
-      shell: docker exec -it jenkinsv2.2 cat /var/jenkins_home/.ssh/github_key.pub
-      register: pubkey
-    - name: Copy public key below
-      debug: var=pubkey.stdout_lines
-
+    # - name: generate ssh keys
+    #   shell: docker exec -it myjenkins ssh-keygen -q -t rsa -N '' -f /var/jenkins_home/.ssh/github_key
+    # - name: print public key
+    #   shell: docker exec -it myjenkins cat /var/jenkins_home/.ssh/github_key.pub
+    #   register: pubkey
+    # - name: Copy public key below
+    #   debug: var=pubkey.stdout_lines
 

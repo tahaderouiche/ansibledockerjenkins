@@ -1,13 +1,23 @@
 ---
-    - name: build docker image
+    - name: Build data container image
       become: yes
       become_user: root
-      docker_image: path="{{ dockerfilespath }}/docker" name="tahaderouiche/jenkins" tag="version2.2"
-    - name: run docker
+      docker_image: path="{{ dockerfilespath }}/jenkins_data" name="jenkins_data_image"
+    - name: Run data container
       become: yes
       docker:
-        name: jenkinsv2.2
-        image: tahaderouiche/jenkins:version2.2
+        name: myjenkinsdata
+        image: jenkins_data_image
+    - name: build jenkins image
+      become: yes
+      become_user: root
+      docker_image: path="{{ dockerfilespath }}/docker" name="my_jenkins_image"
+    - name: Run jenkins docker
+      become: yes
+      docker:
+        name: myjenkins
+        image: my_jenkins_image
         ports: 0.0.0.0:8081:8080 , 0.0.0.0:5000:5000
         state: started
         volumes: /var/jenkins_home
+        volumes_from: myjenkinsdata

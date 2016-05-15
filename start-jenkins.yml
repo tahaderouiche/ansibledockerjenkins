@@ -1,7 +1,7 @@
 ---
 - hosts: dockerhost
   tasks:
-    - name: run docker
+    - name: Run Jenkins container
       become: yes
       docker:
         name: myjenkins

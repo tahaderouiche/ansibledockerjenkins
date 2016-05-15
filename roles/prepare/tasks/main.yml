@@ -6,7 +6,7 @@
       become: yes
       become_user: root
       apt: name=apt-transport-https update_cache=yes state=present
-    - name: install CA certificates
+    - name: Install CA certificates
       become: yes
       become_user: root
       apt: name=ca-certificates update_cache=yes state=present
@@ -40,11 +40,13 @@
       user: name={{ ansible_ssh_user }} groups=docker append=yes
     - name: Copy dockerfile and other files to build image
       synchronize: src=./docker/ dest={{ dockerfilespath }}/docker set_remote_user=yes perms=yes
-    - name: install pip
+    - name: Copy Data container dockerfile
+      synchronize: src=./jenkins_data/ dest={{ dockerfilespath }}/jenkins_data set_remote_user=yes perms=yes
+    - name: Install pip
       become: yes
       become_user: root
       apt: name=python-pip
-    - name: install docker-py
+    - name: Install docker-py
       become: yes
       become_user: root
       pip: name=docker-py
