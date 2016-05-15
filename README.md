@@ -12,9 +12,9 @@ The repository contains the below files:
 5. jenkins_data: Folder containing docker file that will be used to build the docker image of the data container used to keep data persistent.  
 6. get-details.yml: Playbook used to retreive the Administator assword after the first intallation of Jenkins.  
 7. start-jenkins.yml: Playbook used to start Jenkins container again (after a crash for example)  
-8. roles: contains the two roles called by the main Anisble playbook.  
-  * prepare/tasks/main.yml: This will install all required packages and files as prerequisites to Docker and finally install docker.  
-  * jenkins/tasks/main.yml: Will install a Docker data container and Docker Jenkins container after building an image for both of these. The data container will be mounted to Jenkins container to make data persistent, ie a crash/stop of Jenkins container will not result in a loss of data/jobs/configuration.    
+8. roles: contains the two roles called by the main Anisble playbook.
+ * prepare/tasks/main.yml: This will install all required packages and files as prerequisites to Docker and finally install docker.  
+ * jenkins/tasks/main.yml: Will install a Docker data container and Docker Jenkins container after building an image for both of these. The data container will be mounted to Jenkins container to make data persistent, ie a crash/stop of Jenkins container will not result in a loss of data/jobs/configuration.    
 
 ## Requirements:
 This was tested using ansible 2.0.2.0, and target server is Ubuntu 14.04
