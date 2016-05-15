@@ -9,8 +9,8 @@ The repository contains the below files:
 2. hosts: contains the list of hosts targetted by Ansible during the deployment process.
 3. config.xml: config files used by Ansible to define paths for hostfile and roles
 4. roles: contains the two roles called by the main Anisble playbook. 
-..1. prepare/tasks/main.yml: This will install all required packages and files as prerequisites to Docker and finally install docker. 
-..2. jenkins/tasks/main.yml: Will install a Docker data container and Docker Jenkins container after building an image for both of these. The data container will be mounted to Jenkins container to make data persistent, ie a crash/stop of Jenkins container will not result in a loss of data/jobs/configuration.
+  1. prepare/tasks/main.yml: This will install all required packages and files as prerequisites to Docker and finally install docker. 
+  2. jenkins/tasks/main.yml: Will install a Docker data container and Docker Jenkins container after building an image for both of these. The data container will be mounted to Jenkins container to make data persistent, ie a crash/stop of Jenkins container will not result in a loss of data/jobs/configuration.
 5. Docker: Folder containing docker file and other files required to launch Build Jenkins Docker container. It is based mainly on the original Jenkins docker file with some small changes. 
 6. jenkins_data: Folder containing docker file that will be used to build the docker image of the data container used to keep data persistent 
 7. get-details.yml: Playbook used to retreive the Administator assword after the first intallation of Jenkins.
