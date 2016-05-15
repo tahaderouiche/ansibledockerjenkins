@@ -27,5 +27,5 @@ This was tested using ansible 2.0.2.0, and target server is Ubuntu 14.04
 5. You can complete the installation by selecting the right plugins and start using Jenkins.
 
 ## More details:
-Docker file used for Jenkins is based on the official one that can be found [here] (https://github.com/jenkinsci/docker)
-Ansible playbook tasks are based on the steps defined on the official docker docs [here] (https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+Docker file used for Jenkins is based on the official one that can be found [here] (https://github.com/jenkinsci/docker).      
+Ansible playbook tasks are based on the steps defined on the official docker docs [here] (https://docs.docker.com/engine/installation/linux/ubuntulinux/).   
