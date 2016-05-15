@@ -4,7 +4,7 @@ Jenkins on a Docker container launched via Ansible
 This is a guide for anyone who needs to run Jenkins on a Docker container, with persistant data (using Docker data container) and with a complete playbook to prepare the environment.
 
 ## Content
-The repository contains the below files:
+The repository contains the below files:   
 1. docker-jenkins.yml: Main Ansible playbook to deploy all required packages and files to install and set up Docker and run Jenkins on top of it.
 2. hosts: contains the list of hosts targetted by Ansible during the deployment process.
 3. config.xml: config files used by Ansible to define paths for hostfile and roles
