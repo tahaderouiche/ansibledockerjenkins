@@ -25,3 +25,7 @@ This was tested using ansible 2.0.2.0, and target server is Ubuntu 14.04
 3. Run `ansible-playbook docker-jenkins.yml` . This will set up all required packages and install jenkins to run on port 8081.
 4. Once Jenkins is up and running, you can confirm by going to <hostname>:8081. For a first installation, this will require an admin password. Run `ansible-playbook get-details.yml` and copy the password that will appear.
 5. You can complete the installation by selecting the right plugins and start using Jenkins.
+
+## More details:
+Docker file used for Jenkins is based on the official one that can be found [here] (https://github.com/jenkinsci/docker)
+Ansible playbook tasks are based on the steps defined on the official docker docs [here] (https://docs.docker.com/engine/installation/linux/ubuntulinux/)
